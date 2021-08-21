@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Boston House Price Prediction</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='./style.css') }}">
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>Boston House Price Prediction</h1>
+
+     <!-- Welcome text  -->
+     Welcome to Boston house price prediction API. This API has only one useful endpoint. <br>
+
+     Predict house prices via the endpoint <a href='https://boston-predictions.herokuapp.com/predict' style="color:#FFFFFF">https://boston-predictions.herokuapp.com/predict</a> using a POST request.<br>
+      
+     For more info, visit the <a target="_blank" href='https://github.com/fortune-uwha/boston_house_price_prediction' style="color:#FFFFFF">github repository</a>
+
+  
+   
+ </div>
+ {{pred}}
+
+
+</body>
+</html>
