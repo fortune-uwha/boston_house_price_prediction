@@ -1,9 +1,8 @@
 import json
 import pickle
 
-import numpy as np
-from flask import Flask, request, render_template
-
+from flask import Flask, render_template, request
+from utils.input_processor import process_input
 
 SAVED_MODEL_PATH = "model.pkl"
 
@@ -12,18 +11,21 @@ regressor = pickle.load(open(SAVED_MODEL_PATH, "rb"))
 app = Flask(__name__)
 
 @app.route('/')
-def home():
+def home() -> str:
+    """
+    Homepage for this API.
+    :return: Basic info about the API
+    """
     return render_template("home.html")
-
-def __process_input(request_data: str) -> np.array:
-    parsed_body = np.asarray(json.loads(request_data)["inputs"])
-    assert len(parsed_body.shape) == 2, "'inputs' must be a 2-d array"
-    return parsed_body
 
 @app.route("/predict", methods=["POST"])
 def predict() -> str:
+    """
+    Creates route for model prediction for given number of inputs.
+    :return: predicted price
+    """
     try:
-        input_params = __process_input(request.data)
+        input_params = process_input(request.data)
         print(input_params)
         predictions = regressor.predict(input_params)
 
