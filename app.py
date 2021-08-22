@@ -10,6 +10,7 @@ regressor = pickle.load(open(SAVED_MODEL_PATH, "rb"))
 
 app = Flask(__name__)
 
+
 @app.route('/')
 def home() -> str:
     """
@@ -17,6 +18,7 @@ def home() -> str:
     :return: Basic info about the API
     """
     return render_template("home.html")
+
 
 @app.route("/predict", methods=["POST"])
 def predict() -> str:
