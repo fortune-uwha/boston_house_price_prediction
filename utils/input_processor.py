@@ -9,5 +9,5 @@ def process_input(request_data: str) -> np.array:
     :return: numpy array
     """
     parsed_body = np.asarray(json.loads(request_data)["inputs"])
-    assert len(parsed_body) >= 1 #"'inputs' must be a 1-d array with 13 parameters"
+    assert len(parsed_body) >= 1
     return parsed_body
